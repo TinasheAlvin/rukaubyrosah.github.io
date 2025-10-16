@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rukau by Rosah - African-Inspired Home & Lifestyle</title>
+    <meta name="description" content="Handcrafted African-inspired home décor and lifestyle products. Eco-friendly, artisan-made, culturally authentic. Shop mini-sculpts, lamps, bracelets & more.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --sunset-red: #ff4d4d;
+            --sunset-orange: #ff8c42;
+            --sunset-gold: #ffd700;
+            --earth-brown: #8b6f47;
+            --dark-brown: #2c1810;
+            --cream: #fff5e6;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            color: var(--dark-brown);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        
+        .logo-img {
+            height: 60px;
+            width: auto;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--dark-brown);
+            font-family: Arial, sans-serif;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--sunset-orange);
+        }
+        
+        .shop-button {
+            background: var(--sunset-orange);
+            color: white !important;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+        
+        .shop-button:hover {
+            background: var(--sunset-red);
+            color: white !important;
+        }
+        
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            height: 90vh;
+            background: linear-gradient(135deg, var(--sunset-red) 0%, var(--sunset-orange) 50%, var(--sunset-gold) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="100" cy="50" r="40" fill="rgba(255,255,255,0.1)"/><path d="M 100 90 Q 70 120 80 170 Q 100 180 120 170 Q 130 120 100 90" fill="rgba(255,255,255,0.1)"/></svg>') center/contain no-repeat;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            z-index: 1;
+            max-width: 900px;
+            padding: 40px;
+            animation: fadeInUp 1s ease;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            letter-spacing: 2px;
+        }
+        
+        .hero p {
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            font-family: Arial, sans-serif;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 18px 50px;
+            background: white;
+            color: var(--dark-brown);
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+            background: var(--cream);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 100px 50px;
+            background: var(--cream);
+            text-align: center;
+        }
+        
+        .about h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            color: var(--dark-brown);
+        }
+        
+        .about p {
+            max-width: 900px;
+            margin: 0 auto 60px;
+            font-size: 1.3rem;
+            color: #666;
+            font-family: Arial, sans-serif;
+            line-height: 1.8;
+        }
+        
+        .values {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .value-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        
+        .value-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        
+        .value-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--earth-brown);
+        }
+        
+        .value-card p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 100px 50px;
+            background: white;
+        }
+        
+        .products h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--dark-brown);
+        }
+        
+        .products-subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            color: #666;
+            font-family: Arial, sans-serif;
+            margin-bottom: 60px;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .product-card {
+            background: #f9f9f9;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            transition: all 0.4s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 350px;
+            background: #f5f5f5;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 35px;
+        }
+        
+        .product-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--dark-brown);
+        }
+        
+        .product-info p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 20px;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        
+        .price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--sunset-orange);
+            margin-bottom: 20px;
+            font-family: Arial, sans-serif;
+        }
+        
+        .product-button {
+            display: inline-block;
+            padding: 12px 35px;
+            background: var(--sunset-orange);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .product-button:hover {
+            background: var(--sunset-red);
+            transform: scale(1.05);
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            padding: 100px 50px;
+            background: var(--cream);
+        }
+        
+        .gallery h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--dark-brown);
+        }
+        
+        .gallery-subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            color: #666;
+            font-family: Arial, sans-serif;
+            margin-bottom: 60px;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .gallery-item {
+            aspect-ratio: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 50px;
+            background: linear-gradient(135deg, var(--dark-brown) 0%, #4a3426 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .contact h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+        }
+        
+        .contact p {
+            font-size: 1.4rem;
+            margin-bottom: 50px;
+            font-family: Arial, sans-serif;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            max-width: 1000px;
+            margin: 0 auto 60px;
+        }
+        
+        .contact-item {
+            font-family: Arial, sans-serif;
+        }
+        
+        .contact-item strong {
+            display: block;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--sunset-gold);
+        }
+        
+        .contact-item p {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .social-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--sunset-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 2rem;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background: var(--sunset-gold);
+            transform: scale(1.15) rotate(5deg);
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a0f0a;
+            color: var(--earth-brown);
+            text-align: center;
+            padding: 40px 20px;
+            font-family: Arial, sans-serif;
+        }
+        
+        footer p {
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 20px;
+                box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            nav {
+                padding: 15px 20px;
+            }
+            
+            .logo-img {
+                height: 50px;
+            }
+            
+            .products, .about, .contact, .gallery {
+                padding: 60px 20px;
+            }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div>
+            <!-- Use your logo image here -->
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='90' fill='none' stroke='%232c1810' stroke-width='3'/%3E%3Cpath d='M 100 140 Q 80 120 70 100 Q 65 85 70 70 L 80 80 Q 75 90 80 100 Q 90 115 100 120 Q 110 115 120 100 Q 125 90 120 80 L 130 70 Q 135 85 130 100 Q 120 120 100 140 Z' fill='%232c1810'/%3E%3Ctext x='100' y='170' text-anchor='middle' font-family='Georgia' font-size='24' fill='%232c1810'%3ERukau%3C/text%3E%3Ctext x='100' y='190' text-anchor='middle' font-family='Arial' font-size='14' fill='%238b6f47'%3Eby Rosah%3C/text%3E%3C/svg%3E" alt="Rukau by Rosah" class="logo-img">
+        </div>
+        <div class="mobile-menu" onclick="toggleMenu()">☰</div>
+        <ul id="nav-menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="https://www.takealot.com" class="shop-button">Shop on Takealot</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>RUKAU BY ROSAH</h1>
+            <p>Handcrafted African Stories • Made for Modern Living</p>
+            <a href="#products" class="cta-button">Explore Our Collection</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>Where Heritage Meets Home</h2>
+        <p>
+            Rukau by Rosah celebrates the rich tapestry of African culture through contemporary design. 
+            Each product we create tells a story—honoring tradition while embracing modern aesthetics. 
+            From hand-carved lamps to artisan-crafted sculptures, we bring the warmth of Africa into your everyday life.
+        </p>
+        
+        <div class="values">
+            <div class="value-card fade-in">
+                <div class="value-icon">♻️</div>
+                <h3>Eco-Friendly</h3>
+                <p>Sustainable materials, biodegradable packaging, and a zero-waste philosophy guide everything we create.</p>
+            </div>
+            
+            <div class="value-card fade-in">
+                <div class="value-icon">🎨</div>
+                <h3>Artisan-Made</h3>
+                <p>Hand-crafted by skilled South African artisans, supporting local communities and preserving traditional techniques.</p>
+            </div>
+            
+            <div class="value-card fade-in">
+                <div class="value-icon">🌍</div>
+                <h3>Culturally Authentic</h3>
+                <p>Real African heritage, genuine stories, and meaningful designs that celebrate our roots.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <h2>Our Collection</h2>
+        <p class="products-subtitle">Handcrafted pieces that bring African warmth into modern homes</p>
+        
+        <div class="product-grid">
+            <!-- Product 1: Mini-Sculpts -->
+            <div class="product-card fade-in">
+                <div class="product-image">
+                    <img src="https://lh3.googleusercontent.com/rd-gg-dl/AJfQ9KRgWBaDDBSGCpSsCla8CfTKIC0UgVXeCnhNpQe2HGKKzgo2z4IatWJwBb4e53BIcWkPmYcsGDtFbnwlCRDimxdF33p3QOIc_p_fDrdjqXIx-suEdyCkAy7u11-o35aOnkmXjTZBx-PH1t08S256J72VR_od_E6HN9qLVwcH4NIDOk4-Mv7TBE0ZW4knl8ECQI2KWnz02lV3WmbWEZyitSe8kYPgj-T39NGu3wzDXp6ZXJO2TXf-6C-bFizlMxpLqk0aaXz1XRahsKWXjmUnG6dNrfnzzLXK9t3pYqI3gFsLbN9BX4h1YLr_Ryx0Gi8LRelVWAjZzDWsjhHzhbR6AyxTGln4-U6Ceyacrg3EYNkgA-7sD1Wxo1wmM49tf2eldIjlJg73nYcwm9qmfLYOhabBaPZne_wRnGC7gtgms6hU-26_ZJ6Edy4BMF1Ab16aL5HMkD7d4jtvcl2Gvz6MvNAVIKqmj-adACfjwSy62Ll1XHsbsWzc4zNuus2M_ml5oWKIsTXpWbuT5ghB-77m-ltUmU48fKT9ZNbAmDlJMMZLSxGkhtPiNmk2a7Nt4XjY21EEUH9LVWZL__8mPx5UQAhm1nWIZp31JYk0NhRYfXzM2Qf3uxt-DkGCl48Vt-6GcU2EWOH3C6oVAlu21-Y9dClIJ_LzUGI2wg2s7MMVlkVPqPJOVUrS6Ha5qWtxXCHyet_SI4_RBU0dNYl2-ytXJj_-7-szlpMhM74uSVzRI_LFQ527gWxJYGSPOYTy6ZxYTFRNMhp67sE-eOWLAwQkyQQicBr_euybd3Iqq_k3bmEDylktbM4qvljlvZ2-8C7LWV7Jpkp8PqqHTJ8n78hL15eXCo4j6vnUpl228m3ZWlsys1WaP5sYwadCGzi9mlADHwEj1Cs49m5HeyqzIZ6fUrxBEreycVWEXvbjIPO8da-hyoBFHtjceqEbIL5ofv06hpyAVcPklFdNToN0TDcdp88IfgC98O2V7OpNV7w8bdMuhgqGSnegYX7PoxujodBrkeL5-cj8--Arpf7tDHZKOGj-giHOopffycRPxbTnfY0YNZe-zFpseGL4iEgNjz_WpcnYv5IcmZDqllKfpVSa5oWx9Ic99Vixsf0ziDIkfiSxL7bjHQ_FC2suCwJDKObIPTnhKjFqIilvNpspbkQF3rV7fVYxZBezbgyTLYu8EYhznFwAvWLTconjeGzFrHukf0U=s1024-rj" alt="Rukau Studio Mini-Sculpts - Hand-painted African Wildlife">
+                </div>
+                <div class="product-info">
+                    <h3>Studio Mini-Sculpts</h3>
+                    <p>Hand-painted collectible wildlife featuring elephant, lion, and rhino in stunning sunset gradients. Each piece is numbered, signed, and limited to 100.</p>
+                    <div class="price">R250 each</div>
+                    <a href="#contact" class="product-button">Enquire Now</a>
+                </div>
+            </div>
+            
+            <!-- Product 2: Sunset in a Box -->
+            <div class="product-card fade-in">
+                <div class="product-image">
+                    <img src="https://lh3.googleusercontent.com/rd-gg-dl/AJfQ9KQuooB2bRSBj2f8Fl_eYZ28wOK-aCJ9xDxC38ObjJ8hCFG6iAH-SrgLDtdKx87wu7RkHpiK_v3mUTvU22xlw9REIYiYuNNqeDzZe6r5hVUHktCHdhTppdC7tRH1zyzts87bZzjGdKUDxJxXXAbL8rJ6FDSxUqc5QUNZdQAj7skZPO5BJW0bWne3iKIVlw6ageIxMzHls4llJ3G-zDCtxLyRgxzRXTZVgl8yl9PkGKLxLYVIu_z-tsH64Tbj8ww1Bzm_xHjLHyCUJx-07EeK_PRg0hTctcFqOzE29jAMONZ4J38rMRtpHh8IJLYTJjiWE1sYFb_d9KntPWOeA1Qr5e-t-wwQIvK2F_ELALrBqnwaBoIRW06rLIEzV3N_53ow6zLItqyaHru-SXWekH80D_z8LFNRV4wy49gqHeteOMdzBWLtAGo1e5C_VkhDugo5f8_vOca666FLMSUVxoKAoWibNPbtIEAjZbCh_uW7ErH697GBSwZEFigHUlfypmgFF5HC_olAjheZP1wuEVlkQdNWcZ1UOOVUKZdET-JDuvASy_XABVZpaQg0vixdG-P7zmmkN39s4u3_p0eGhcBdbySKzOQD_LdtJjpprCRLtvbbTZHNWp0E22D4SKlcc4XyII2lxDrEeLgKmrAb8eJNu2hAdwTGq8BojzzOORwcrpbM00AQhefkNnV4JkpozTJWHtGIojFZ1sH_HaI1wHnA9vuMowJII7e6SbIn23sxyI9iDRLlz7xmpm_jhoAF9S3O9hXflTqyp9RPJ1ZAaQsCoVqovuln8519ch9SqDzNGPBsa_sG7PUxBJYid8teFJQXEr-0RYDidCCVGCTBzr8pkihIeAm1INWDX1lLyxEj3ua0fEVzWtF4hMh413MsWj7fFtjTX6otg7TRZNKhM9yP5XEw9zxvpPHTslWX_EzCIuj-OhOE4YzYYYXY_w_7uhocVpHSqJWzZPOyjamk9MHbXLwQNcoy_aOUiq9FLWt4BuCgS73gyKP6BCHy_saRpBAAQgD1ObMPvB5aUWKfkcXBWZE6ph73yMpFpWvve222kOMKozIiY9f8Y9AyNJtXai525-u2IZmq8MkNcj9rGU_JSoH9d4RXGyppdmpiyHmIsOcUi10Nl8JIGgigo1Oh4lAiqrOiRBJZsGvOZInd_jF0-PWM2aSx8qhLOkGVscS5xyF9hsfUCIXTb-LzvVQ9vzPmsVFK=s1024-rj" alt="Sunset in a Box DIY Kit">
+                </div>
+                <div class="product-info">
+                    <h3>Sunset in a Box</h3>
+                    <p>Complete DIY home décor kit with canvas, sunset paints, African stencils, and LED backlight. Create your own glowing masterpiece in 2 hours!</p>
+                    <div class="price">R299</div>
+                    <a href="#contact" class="product-button">Enquire Now</a>
+                </div>
+            </div>
+            
+            <!-- Product 3: Heritage Light Pods -->
+            <div class="product-card fade-in">
+                <div class="product-image">
+                    <img src="https://lh3.googleusercontent.com/rd-gg-dl/AJfQ9KRDAYVfzs8uVxfxXYZdNmUuDT49TNHEqlNM0Jz8t5SSxvVf9u1IqszZmtDTk3y9ACWkkZQuX5g65fFAP5hS-Ij1PPMVTSrdZQjY4BuwjWxpmoyRAJm3mRwrxsVKQ3Vi5FmFbYg528HUMRYrwxX0qAp2OZB60T6RYrahbDorNp9BS5EXA2RIVBGwXGhv14GGcOYaSQgURH3-idnfoAmsY5z8Js9egL5i6FsTvfksV-LGUkKsrl53HBD-0t1s9mxnPOnCh-09InXCU6C-kzZyGi5Qhr8EcyB0Fk3_q41SlW4AYmozG0r_Ous4IuQFepRwUjhkpiufDwGy4rSRno0AqOco1L0WhZc494mpD3JEGzO_IvZuStcBosZugKAh1So2SKEARW94pGw2JWbXGZlEKg2FzbVMSVYefuLfzT84zVdIVNe1BhHDy8Y_uPRLWA58cwk7eyhWV7q2-Ux9HArF62hVggeqIspNRs9QYffVs_sDCmsZ74odXK1W7TDyPzUlly1U3ONV5p_zmFgf5-DVe9uApeD4Ek9ch3gLOy1ObZVaHeeg43I3euqER3ub1F8iW8r5XNutTW72qqaYHEsIj410hn2HVw9YYvgDGpKXIEfFnUTpgEd3f53nLrbfh4JILb9_omLwdbZHBwj-CKShWybtUkSC58wsmYt2tBJFXf-1XiEtV3Q9U1yvvQuqUOxIi99nA3TUuas5tJqAmp-7pLuWUDIE4hRwf0hD-2ijgsBo55cXTkoP122S8_mxZpTY0gM3FglYMadWQ_5pHIMwXm-7oPVigfdUmF-F4p4vnKX9ZLYrcPMkTJtAzXE6SjRHeslEEISYbavB5Fa7zzBtq8gvR2LmFeOztSMm6qQCVk01lH0ugGfk5akvWoBkGixRN4N8T6lIxfL0R2qq7SHAr73AvuqXe3P8LpAlls4sPI01BzPaY-q5yrz3ObWTFvX_0aVkbhiKeJbT7SMTjO8cMVXqtrMJnoKYnkGaclBQq3RDojQmqGrG5ExxUGIwv1FwqBNIRXehSsu8Zpz_paMeynjYS67jwGwKS4wJzQ1HOHqsi0A0upxb4ExQXN0znpjZP4rtHrmiTra3g7d6bJH3VPiZ3jX35oQbzBNVlZoso3CMfz44ca-WfY1VH8BjM84i8XvrrN9PcHKCMN4xM3x8KmLBKfA3t3Eg7GuvQR08UPQvZ6L7WESn2rXpxUjP9iItMfo=s1024-rj" alt="Heritage Light Pods">
+                </div>
+                <div class="product-info">
+                    <h3>Heritage Light Pods</h3>
+                    <p>Hand-carved coconut shell and calabash lamps with intricate tribal patterns. 100% biodegradable with warm LED glow. USB or solar powered.</p>
+                    <div class="price">R450 - R600</div>
+                    <a href="#contact" class="product-button">Enquire Now</a>
+                </div>
+            </div>
+            
+            <!-- Product 4: Storybead Bracelets -->
+            <div class="product-card fade-in">
+                <div class="product-image">
+                    <img src="https://lh3.googleusercontent.com/rd-gg-dl/AJfQ9KTU8swfCQctqRK9-Rp5Evn9iOdW6yWKsU0lmw_wpp_PgnbHiZzTKwt7sdmkg6I8elGY9TocbiRRgXHImsZBRd3PF72MiEWO_k62_VSXXAC0GWSRHCTR2cSdn5BrjwH9bI5pGzzqp8srZpo7F8VIsF34HENWkd46RuuUcjYDr3N3iixOixgB91kpTohSkAZfwF4z0cC0er5n-qhYKiVl4uqQDvnLrvUBuQw186P5QMOJKJASQ-J1QbJOkvOvcAYZeUb4C3GcRgThtsiZNZFXL7Ftz9bO8RzYDtOeqqo1hfgwVZgZRWBPzf1h-Q9No6l8LwiIbcP7H9bzlU4c824rKBThwNKRReKCK4XVEyljjA2dlit6UhQB8o1Uh0cJKTVby5rOjSuEw-4Fyg8MJkBrxCQkLyc_jemAoTK1shKXSG40gGxlo3pY_JWkbHxk_DucSzClsuZn3epnbYrEGGir4wMZMNmLgwrnXCxKtErF0vxipO-T-HOQuUWM-DCbdBeMErKUYegK0n9AIiRXkiaSSYRNAttM9_TsUEIRAo7Udn-BwjXrAqAbsslUHFzy6p1Q_N69aVs1ZXPchd_KOYUo8g6RLMdM20yIg_ZdnvOws8HAuT0FJnbNiKzHZ78mVtEHqUqMyzpZfJrOYx0vnWOgddJF2QWgMWX3wxli_Tr5ts84_a8xIt1WtrWiJcueaJInmpFHdIXyjUYcLBiTnAi5C7Dqa-ReJiTQ5jQlC7-TPaBmzjzbd2u7wz9xIByVO6zOCS3Gqot_q2CwJa3dOeOcKM3uxK8L0_X8Olg9ckEZVCPnVAxRoJb7TXZd1bKFPVM7BDarlQddHu2N-paNhFCPqub21JhoGA8_CU23_i5OvDHQd2PrJ5eJsJDS5qCHQWVbnm0er5WLB1Ef2r9VnOWYifOsGBhW7vuvhHR3WqKhe7CiHFKFRBbNWsQ3AqY-7AU5vKwYJ7KmzTQOp5duSmd1Qv4HUMKH9ZBqo9Hr-Xjf81Z_Of0gdcdxdRVle8ZSHOOborOw2dGpYMrr7CnBazasxrAcdwKVGUiz1zvjz3hmtpth2U6GYA7dxwvPjmC4Q_dPgjM-_PazbuNor1iSG_bhRrD8V4vKt6y_0Qv5maZA337eIhmx3BBgP9iuTz1xVt5aFbPGizfwR63RYb6HR4lEcgDwcBKt8u63fXeNxKRYP3rxugicXd04vUXbziFbkhD9OQ-M=s1024-rj" alt="Storybead Bracelets">
+                </div>
+                <div class="product-info">
+                    <h3>Storybead Bracelets</h3>
+                    <p>Adjustable cultural bracelets with QR-coded stories. Choose Zulu Sunrise, Savanna Dusk, or Kariba Night. Each tells an authentic African tale.</p>
+                    <div class="price">R135 each</div>
+                    <a href="#contact" class="product-button">Enquire Now</a>
+                </div>
+            </div>
+            
+            <!-- Product 5: African Elements -->
+            <div class="product-card fade-in">
+                <div class="product-image">
+                    <img src="https://lh3.googleusercontent.com/rd-gg-dl/AJfQ9KQ6suqC_xAgkP4Jc8SOkG_UvUrzmBwPUzB0nc6pH7INcFuo9dEomEBVmSoLVXxO1K0UY1w3TZGPnvVS1d_hQoC_V8X1oMxVBmhy8sBkcvJLzD4zQy62xjDrj4DQKTRnSjNjSYbJ_8g4r3zjne9h8tW-nG9QsNdAfsWTMZutFPY1T6kdoTphTp4DA4e1sMtZE5Fs4zW1Pr8hHxlzqUu6-kQs0-jbnh6apKjpCzffYSEbBSSaInm0H4lC25L4l7A9fJ1zyieNW4YNR7p1JNkMGu72CAagyL8a1ji4yMPDQnq-nDiXh-XAIq6xOlhvhH45Lwlnuo8RuMu7zUCGYYJnqIap2SCk0NtBSozBK0EYp8FOPZMPvO9vojFKp0sMBpWhsNYKgg3CkRqJ1Di3kJOkZnEVSJ6f1KIhvUnI4YMWRMIWd0ekb2ob5xOBZfoA3PXK6YJTDed4hItd4b78trcnvVH324sKGYKEiOrarXkZiK53PrTTNKNmnlEWfaBzNo9nwh5HN8Fia9yHcfXmMw1s6R6AVqriadD5qBdeFEIx3OFZBoMG-SC59OAiR7C9eeI_TahSWQGb1W2-bRqbGsoWq5Jrgytzvom0zauokU9W3BT47FkZt92UtwlJQYtdPuK510Dg8emMdrBlKaq-HwvQZDotYwn0sn7MBYOUy94qn4MKbUKX1gCQKD8zY84NHclSJMZLnltNKfUBmVvc4sjhquY2wQoqwwYuNQXUJp3S5otMaLx30dpU3ilgD4R5RVIphBGxgh9YT9a_oJ1fmmKMfXLrhisIETGcQ95ZezniuZ2sfa_mal_RXhW7ynIxa7vyFolr9uexoOisAf77KBM2HN57CGekx1KhpJ_bgrm7RIqVsAfxVGbcjAY7uyiYKeWoAEbTS7SujLzAVrNtG3fG6a5dsaQbZWZOLnvGrMWfrvQIsScB7rHTrid_idfA5_uG7doPkr0YFzGrjMqeheOFrX8rRSBaHsgiIWOYgGs2mw2OIEzcQXbzZTSCuoXkF4xYQxumcW08vFZ5j8D1BKSDgWGXUifb2g4qoHFbmA_EY9darihRW0Is3ogmNraeldvZPwVC4gDXMTpkec96pCJv67h_O0TUsPDUrZ9He1dEkCDhxMg_7KWnP7E8AJXn2dBANH8Hg9JQpt0Re2vjvqsdOaqdjUTdNjCeiIjTp2a-bhOSjqoX_SduMs1KxgssKsMqMiU=s1024-rj" alt="African Elements Scent Collection - Natural Candles and Diffusers">
+                </div>
+                <div class="product-info">
+                    <h3>African Elements</h3>
+                    <p>100% soy wax candles and reed diffusers in three signature scents: Sunset Ember, Savanna Earth, and Tribal Night. Recycled amber glass jars.</p>
+                    <div class="price">R299 - R350</div>
+                    <a href="#contact" class="product-button">Enquire Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <h2>Our Story in Pictures</h2>
+        <p class="gallery-subtitle">Behind every product is a story of craftsmanship, culture, and care</p>
+        <div class="gallery-grid">
+            <div class="gallery-item fade-in">
+                <!-- Use your product images in gallery -->
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Crect fill='%23ddd' width='400' height='400'/%3E%3Ctext x='200' y='200' text-anchor='middle' font-size='20' fill='%23888'%3ELifestyle Shot 1%3C/text%3E%3C/svg%3E" alt="Rukau Products in Use">
+            </div>
+            <div class="gallery-item fade-in">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Crect fill='%23ddd' width='400' height='400'/%3E%3Ctext x='200' y='200' text-anchor='middle' font-size='20' fill='%23888'%3ELifestyle Shot 2%3C/text%3E%3C/svg%3E" alt="Artisan Crafting">
+            </div>
+            <div class="gallery-item fade-in">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Crect fill='%23ddd' width='400' height='400'/%3E%3Ctext x='200' y='200' text-anchor='middle' font-size='20' fill='%23888'%3ELifestyle Shot 3%3C/text%3E%3C/svg%3E" alt="Heritage Craftsmanship">
+            </div>
+            <div class="gallery-item fade-in">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Crect fill='%23ddd' width='400' height='400'/%3E%3Ctext x='200' y='200' text-anchor='middle' font-size='20' fill='%23888'%3ELifestyle Shot 4%3C/text%3E%3C/svg%3E" alt="Sustainable Materials">
+            </div>
+            <div class="gallery-item fade-in">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Crect fill='%23ddd' width='400' height='400'/%3E%3Ctext x='200' y='200' text-anchor='middle' font-size='20' fill='%23888'%3ELifestyle Shot 5%3C/text%3E%3C/svg%3E" alt="Gift Packaging">
+            </div>
+            <div class="gallery-item fade-in">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Crect fill='%23ddd' width='400' height='400'/%3E%3Ctext x='200' y='200' text-anchor='middle' font-size='20' fill='%23888'%3ELifestyle Shot 6%3C/text%3E%3C/svg%3E" alt="Cultural Heritage">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Get in Touch</h2>
+        <p>Have questions? Want to place a custom order? We'd love to hear from you!</p>
+        
+        <div class="contact-grid">
+            <div class="contact-item">
+                <strong>Email</strong>
+                <p>hello@rukaubyrosah.co.za</p>
+            </div>
+            
+            <div class="contact-item">
+                <strong>WhatsApp</strong>
+                <p>+27 XX XXX XXXX</p>
+            </div>
+            
+            <div class="contact-item">
+                <strong>Location</strong>
+                <p>Johannesburg, South Africa</p>
+            </div>
+        </div>
+        
+        <div class="social-links">
+            <a href="https://instagram.com/rukaubyrosah" class="social-icon" title="Instagram">📷</a>
+            <a href="https://facebook.com/rukaubyrosah" class="social-icon" title="Facebook">👍</a>
+            <a href="#" class="social-icon" title="TikTok">🎵</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Rukau by Rosah. All rights reserved.</p>
+        <p>Handcrafted with ❤️ in South Africa</p>
+        <p>🌍 Eco-Friendly • 🎨 Artisan-Made • ♻️ Sustainable</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('active');
+        }
+        
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    document.getElementById('nav-menu').classList.remove('active');
+                }
+            });
+        });
+        
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
