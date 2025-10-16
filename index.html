@@ -6,6 +6,8 @@
     <title>Rukau by Rosah - African-Inspired Home & Lifestyle</title>
     <meta name="description" content="Handcrafted African-inspired home décor and lifestyle products. Eco-friendly, artisan-made, culturally authentic. Shop mini-sculpts, lamps, bracelets & more.">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
+        
         * {
             margin: 0;
             padding: 0;
@@ -13,19 +15,40 @@
         }
         
         :root {
-            --sunset-red: #ff4d4d;
-            --sunset-orange: #ff8c42;
-            --sunset-gold: #ffd700;
-            --earth-brown: #8b6f47;
-            --dark-brown: #2c1810;
-            --cream: #fff5e6;
+            --kruger-red: #C41E3A;
+            --savanna-orange: #FF8C42;
+            --sunset-gold: #FFB81C;
+            --burnt-sienna: #C45911;
+            --earth-brown: #8B5A3C;
+            --dark-brown: #3E2723;
+            --ochre: #CC7722;
+            --baobab-cream: #F4E4C1;
+            --tribal-red: #8B2323;
+            --bush-green: #5C6F3E;
+            --ndebele-blue: #005EB8;
+            --zulu-gold: #D4AF37;
         }
         
         body {
-            font-family: 'Georgia', serif;
+            font-family: 'Ubuntu', 'Arial', sans-serif;
             color: var(--dark-brown);
-            line-height: 1.6;
+            line-height: 1.7;
             overflow-x: hidden;
+            background: var(--baobab-cream);
+        }
+        
+        /* South African Ndebele Pattern Backgrounds */
+        .ndebele-pattern {
+            background: 
+                repeating-linear-gradient(90deg, transparent, transparent 20px, rgba(0, 94, 184, 0.05) 20px, rgba(0, 94, 184, 0.05) 40px),
+                repeating-linear-gradient(0deg, transparent, transparent 20px, rgba(212, 175, 55, 0.05) 20px, rgba(212, 175, 55, 0.05) 40px);
+        }
+        
+        /* Zulu Shield Pattern */
+        .zulu-pattern {
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 25px, rgba(139, 35, 35, 0.03) 25px, rgba(139, 35, 35, 0.03) 50px),
+                repeating-linear-gradient(-45deg, transparent, transparent 25px, rgba(212, 175, 55, 0.03) 25px, rgba(212, 175, 55, 0.03) 50px);
         }
         
         /* Navigation */
@@ -33,57 +56,106 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.98);
+            background: linear-gradient(135deg, var(--tribal-red) 0%, var(--burnt-sienna) 50%, var(--earth-brown) 100%);
             padding: 15px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            border-bottom: 5px solid var(--zulu-gold);
+            border-top: 3px solid var(--ndebele-blue);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
         
         .logo-img {
             height: 60px;
             width: auto;
+            filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.6));
+        }
+        
+        .logo-text {
+            color: var(--zulu-gold);
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            letter-spacing: 2px;
         }
         
         nav ul {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 35px;
             align-items: center;
         }
         
         nav a {
             text-decoration: none;
-            color: var(--dark-brown);
-            font-family: Arial, sans-serif;
-            font-size: 1rem;
-            transition: color 0.3s;
+            color: var(--baobab-cream);
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--zulu-gold), var(--sunset-gold));
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
         }
         
         nav a:hover {
-            color: var(--sunset-orange);
+            color: var(--sunset-gold);
+            text-shadow: 0 0 10px rgba(255, 184, 28, 0.5);
         }
         
         .shop-button {
-            background: var(--sunset-orange);
+            background: linear-gradient(135deg, var(--kruger-red), var(--savanna-orange));
             color: white !important;
-            padding: 10px 25px;
-            border-radius: 25px;
-            font-weight: bold;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(196, 30, 58, 0.5);
+            border: 2px solid var(--zulu-gold);
         }
         
         .shop-button:hover {
-            background: var(--sunset-red);
-            color: white !important;
+            background: linear-gradient(135deg, var(--sunset-gold), var(--zulu-gold));
+            color: var(--tribal-red) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.7);
         }
         
-        /* Hero Section */
+        .shop-button::after {
+            display: none;
+        }
+        
+        /* Hero Section with Kruger Sunset & Tribal Patterns */
         .hero {
             margin-top: 80px;
-            height: 90vh;
-            background: linear-gradient(135deg, var(--sunset-red) 0%, var(--sunset-orange) 50%, var(--sunset-gold) 100%);
+            min-height: 95vh;
+            background: linear-gradient(135deg, 
+                var(--kruger-red) 0%, 
+                var(--tribal-red) 15%,
+                var(--burnt-sienna) 30%, 
+                var(--savanna-orange) 50%, 
+                var(--sunset-gold) 70%,
+                var(--ochre) 85%,
+                #FF6F3C 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -93,29 +165,53 @@
             overflow: hidden;
         }
         
+        /* Ndebele Geometric Pattern Overlay */
         .hero::before {
             content: '';
             position: absolute;
-            width: 300px;
-            height: 300px;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="100" cy="50" r="40" fill="rgba(255,255,255,0.1)"/><path d="M 100 90 Q 70 120 80 170 Q 100 180 120 170 Q 130 120 100 90" fill="rgba(255,255,255,0.1)"/></svg>') center/contain no-repeat;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            opacity: 0.3;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(0, 94, 184, 0.08) 40px, rgba(0, 94, 184, 0.08) 42px),
+                repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(212, 175, 55, 0.08) 40px, rgba(212, 175, 55, 0.08) 42px),
+                repeating-linear-gradient(45deg, transparent, transparent 60px, rgba(255, 255, 255, 0.03) 60px, rgba(255, 255, 255, 0.03) 61px);
+            opacity: 0.7;
+        }
+        
+        /* Floating Tribal & Wildlife Symbols */
+        .hero::after {
+            content: '🦁 🐘 🦏 🦒 🌴 ⬥';
+            position: absolute;
+            font-size: 6rem;
+            color: rgba(255,255,255,0.1);
+            letter-spacing: 120px;
+            animation: float 25s infinite ease-in-out;
+            top: 15%;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(5deg); }
         }
         
         .hero-content {
             z-index: 1;
-            max-width: 900px;
-            padding: 40px;
-            animation: fadeInUp 1s ease;
+            max-width: 1000px;
+            padding: 60px 40px;
+            animation: fadeInUp 1.2s ease;
+            background: rgba(139, 35, 35, 0.4);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 4px solid rgba(212, 175, 55, 0.5);
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
         }
         
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(50px);
             }
             to {
                 opacity: 1;
@@ -124,336 +220,599 @@
         }
         
         .hero h1 {
-            font-size: 4.5rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-            letter-spacing: 2px;
+            font-size: 5rem;
+            margin-bottom: 25px;
+            text-shadow: 4px 4px 12px rgba(0,0,0,0.7);
+            letter-spacing: 10px;
+            font-weight: 700;
+            background: linear-gradient(45deg, #fff, var(--zulu-gold), var(--sunset-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--zulu-gold);
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
         }
         
         .hero p {
-            font-size: 1.8rem;
-            margin-bottom: 40px;
-            font-family: Arial, sans-serif;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+            font-size: 2rem;
+            margin-bottom: 45px;
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.7);
+            font-weight: 500;
+            color: var(--baobab-cream);
         }
         
         .cta-button {
             display: inline-block;
-            padding: 18px 50px;
-            background: white;
-            color: var(--dark-brown);
+            padding: 20px 60px;
+            background: linear-gradient(135deg, var(--zulu-gold), var(--sunset-gold));
+            color: var(--tribal-red);
             text-decoration: none;
             border-radius: 50px;
-            font-size: 1.3rem;
-            font-family: Arial, sans-serif;
-            font-weight: bold;
-            transition: all 0.3s;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            font-size: 1.4rem;
+            font-weight: 700;
+            transition: all 0.4s;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.6);
+            border: 3px solid white;
+            text-transform: uppercase;
+            letter-spacing: 3px;
         }
         
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(0,0,0,0.4);
-            background: var(--cream);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.8);
+            background: linear-gradient(135deg, white, var(--baobab-cream));
+            color: var(--kruger-red);
         }
         
-        /* About Section */
+        /* About Section with Tribal Texture */
         .about {
-            padding: 100px 50px;
-            background: var(--cream);
-            text-align: center;
+            padding: 120px 50px;
+            background: linear-gradient(180deg, var(--baobab-cream) 0%, #F5DEB3 100%);
+            position: relative;
+        }
+        
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(139, 35, 35, 0.04) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(196, 30, 58, 0.04) 0%, transparent 50%),
+                repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(0, 94, 184, 0.02) 30px, rgba(0, 94, 184, 0.02) 60px);
+            pointer-events: none;
         }
         
         .about h2 {
-            font-size: 3rem;
-            margin-bottom: 30px;
-            color: var(--dark-brown);
+            font-size: 3.5rem;
+            margin-bottom: 40px;
+            color: var(--tribal-red);
+            text-align: center;
+            font-weight: 700;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .about h2::after {
+            content: '';
+            display: block;
+            width: 150px;
+            height: 6px;
+            background: linear-gradient(90deg, var(--kruger-red), var(--savanna-orange), var(--sunset-gold));
+            margin: 20px auto;
+            border-radius: 3px;
         }
         
         .about p {
-            max-width: 900px;
-            margin: 0 auto 60px;
-            font-size: 1.3rem;
-            color: #666;
-            font-family: Arial, sans-serif;
-            line-height: 1.8;
+            max-width: 1000px;
+            margin: 0 auto 80px;
+            font-size: 1.4rem;
+            color: #555;
+            line-height: 2;
+            text-align: center;
         }
         
         .values {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            max-width: 1300px;
             margin: 0 auto;
         }
         
         .value-card {
             background: white;
-            padding: 40px 30px;
-            border-radius: 20px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: all 0.3s;
+            padding: 50px 40px;
+            border-radius: 25px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            transition: all 0.4s;
+            border-top: 6px solid var(--kruger-red);
+            border-bottom: 6px solid var(--zulu-gold);
+            border-left: 2px solid var(--ndebele-blue);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(212, 175, 55, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        
+        .value-card:hover::before {
+            opacity: 1;
         }
         
         .value-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 15px 50px rgba(196, 30, 58, 0.3);
+            border-top-color: var(--zulu-gold);
+            border-left-color: var(--kruger-red);
         }
         
         .value-icon {
-            font-size: 4rem;
-            margin-bottom: 20px;
+            font-size: 5rem;
+            margin-bottom: 25px;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
         }
         
         .value-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--earth-brown);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--kruger-red);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
         
         .value-card p {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             color: #666;
+            line-height: 1.8;
         }
         
         /* Products Section */
         .products {
-            padding: 100px 50px;
-            background: white;
+            padding: 120px 50px;
+            background: linear-gradient(180deg, #F5DEB3 0%, var(--baobab-cream) 100%);
+            position: relative;
+        }
+        
+        .products::before {
+            content: '⬥ ◆ ⬥ ◆ ⬥';
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            color: var(--kruger-red);
+            opacity: 0.25;
+            letter-spacing: 40px;
         }
         
         .products h2 {
             text-align: center;
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: var(--dark-brown);
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            color: var(--tribal-red);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .products h2::after {
+            content: '';
+            display: block;
+            width: 200px;
+            height: 6px;
+            background: linear-gradient(90deg, var(--kruger-red), var(--savanna-orange), var(--sunset-gold));
+            margin: 20px auto;
+            border-radius: 3px;
         }
         
         .products-subtitle {
             text-align: center;
-            font-size: 1.3rem;
-            color: #666;
-            font-family: Arial, sans-serif;
-            margin-bottom: 60px;
+            font-size: 1.5rem;
+            color: var(--burnt-sienna);
+            margin-bottom: 80px;
+            font-weight: 600;
+            font-style: italic;
         }
         
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 50px;
-            max-width: 1400px;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 60px;
+            max-width: 1500px;
             margin: 0 auto;
         }
         
         .product-card {
-            background: #f9f9f9;
-            border-radius: 20px;
+            background: white;
+            border-radius: 30px;
             overflow: hidden;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
-            transition: all 0.4s;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            transition: all 0.5s;
+            border: 4px solid transparent;
+            position: relative;
+        }
+        
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, var(--kruger-red), var(--savanna-orange), var(--sunset-gold), var(--zulu-gold));
+            border-radius: 30px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        
+        .product-card:hover::before {
+            opacity: 1;
         }
         
         .product-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            transform: translateY(-20px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(196, 30, 58, 0.4);
         }
         
         .product-image {
             width: 100%;
-            height: 350px;
+            height: 400px;
             background: #f5f5f5;
             overflow: hidden;
             position: relative;
+        }
+        
+        .product-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(to top, rgba(139, 35, 35, 0.7), transparent);
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        
+        .product-card:hover .product-image::after {
+            opacity: 1;
         }
         
         .product-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s;
+            transition: transform 0.6s;
         }
         
         .product-card:hover .product-image img {
-            transform: scale(1.05);
+            transform: scale(1.1) rotate(2deg);
         }
         
         .product-info {
-            padding: 35px;
+            padding: 40px;
+            background: linear-gradient(180deg, white 0%, var(--baobab-cream) 100%);
         }
         
         .product-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: var(--dark-brown);
+            font-size: 2rem;
+            margin-bottom: 18px;
+            color: var(--tribal-red);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .product-info p {
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 20px;
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+            font-size: 1.15rem;
+            color: #555;
+            margin-bottom: 25px;
+            line-height: 1.8;
         }
         
         .price {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--sunset-orange);
-            margin-bottom: 20px;
-            font-family: Arial, sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--kruger-red), var(--savanna-orange), var(--zulu-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
         }
         
         .product-button {
             display: inline-block;
-            padding: 12px 35px;
-            background: var(--sunset-orange);
+            padding: 15px 45px;
+            background: linear-gradient(135deg, var(--kruger-red), var(--savanna-orange));
             color: white;
             text-decoration: none;
-            border-radius: 30px;
-            font-family: Arial, sans-serif;
-            font-weight: bold;
-            transition: all 0.3s;
+            border-radius: 35px;
+            font-weight: 700;
+            transition: all 0.4s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 6px 20px rgba(196, 30, 58, 0.4);
+            border: 2px solid transparent;
         }
         
         .product-button:hover {
-            background: var(--sunset-red);
-            transform: scale(1.05);
+            background: linear-gradient(135deg, var(--zulu-gold), var(--sunset-gold));
+            color: var(--tribal-red);
+            transform: scale(1.08);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.6);
+            border-color: var(--kruger-red);
         }
         
         /* Gallery Section */
         .gallery {
-            padding: 100px 50px;
-            background: var(--cream);
+            padding: 120px 50px;
+            background: linear-gradient(180deg, var(--baobab-cream) 0%, #FFD7A8 100%);
         }
         
         .gallery h2 {
             text-align: center;
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: var(--dark-brown);
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            color: var(--tribal-red);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .gallery h2::after {
+            content: '';
+            display: block;
+            width: 180px;
+            height: 6px;
+            background: linear-gradient(90deg, var(--kruger-red), var(--sunset-gold), var(--zulu-gold));
+            margin: 20px auto;
+            border-radius: 3px;
         }
         
         .gallery-subtitle {
             text-align: center;
-            font-size: 1.3rem;
-            color: #666;
-            font-family: Arial, sans-serif;
-            margin-bottom: 60px;
+            font-size: 1.5rem;
+            color: var(--burnt-sienna);
+            margin-bottom: 80px;
+            font-weight: 600;
+            font-style: italic;
         }
         
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1400px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            max-width: 1500px;
             margin: 0 auto;
         }
         
         .gallery-item {
             aspect-ratio: 1;
-            border-radius: 15px;
+            border-radius: 25px;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: all 0.3s;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.2);
+            transition: all 0.5s;
+            border: 6px solid var(--zulu-gold);
+            border-top-color: var(--kruger-red);
+            border-right-color: var(--ndebele-blue);
+            position: relative;
+        }
+        
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(196, 30, 58, 0.3), rgba(212, 175, 55, 0.3));
+            opacity: 0;
+            transition: opacity 0.5s;
+            z-index: 1;
+        }
+        
+        .gallery-item:hover::before {
+            opacity: 1;
         }
         
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s;
+            transition: transform 0.6s;
         }
         
         .gallery-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transform: scale(1.08) rotate(3deg);
+            box-shadow: 0 15px 50px rgba(196, 30, 58, 0.4);
+            border-color: var(--savanna-orange);
         }
         
         .gallery-item:hover img {
-            transform: scale(1.1);
+            transform: scale(1.15);
         }
         
-        /* Contact Section */
+        /* Contact Section with Tribal Pattern */
         .contact {
-            padding: 100px 50px;
-            background: linear-gradient(135deg, var(--dark-brown) 0%, #4a3426 100%);
+            padding: 120px 50px;
+            background: linear-gradient(135deg, var(--tribal-red) 0%, var(--burnt-sienna) 30%, var(--earth-brown) 70%, #5D4037 100%);
             color: white;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,0.04) 35px, rgba(255,255,255,0.04) 70px),
+                repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(212, 175, 55, 0.04) 35px, rgba(212, 175, 55, 0.04) 70px);
         }
         
         .contact h2 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 3px 3px 10px rgba(0,0,0,0.6);
+        }
+        
+        .contact h2::after {
+            content: '';
+            display: block;
+            width: 200px;
+            height: 6px;
+            background: linear-gradient(90deg, var(--zulu-gold), var(--sunset-gold));
+            margin: 20px auto;
+            border-radius: 3px;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
         }
         
         .contact p {
-            font-size: 1.4rem;
-            margin-bottom: 50px;
-            font-family: Arial, sans-serif;
+            font-size: 1.6rem;
+            margin-bottom: 70px;
+            position: relative;
+            z-index: 1;
+            color: var(--baobab-cream);
         }
         
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 50px;
-            max-width: 1000px;
-            margin: 0 auto 60px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto 80px;
+            position: relative;
+            z-index: 1;
         }
         
         .contact-item {
-            font-family: Arial, sans-serif;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 3px solid rgba(212, 175, 55, 0.4);
+            border-top-color: var(--ndebele-blue);
+            transition: all 0.4s;
+        }
+        
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.18);
+            transform: translateY(-10px);
+            border-color: var(--zulu-gold);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
         }
         
         .contact-item strong {
             display: block;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--sunset-gold);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--zulu-gold);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
         
         .contact-item p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin: 0;
         }
         
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 30px;
-            margin-top: 50px;
+            gap: 40px;
+            margin-top: 60px;
+            position: relative;
+            z-index: 1;
         }
         
         .social-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--sunset-orange);
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--kruger-red), var(--savanna-orange));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: white;
-            transition: all 0.3s;
+            transition: all 0.4s;
+            border: 3px solid var(--zulu-gold);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
         }
         
         .social-icon:hover {
-            background: var(--sunset-gold);
-            transform: scale(1.15) rotate(5deg);
+            background: linear-gradient(135deg, var(--zulu-gold), var(--sunset-gold));
+            transform: scale(1.2) rotate(10deg);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.7);
         }
         
-        /* Footer */
+        /* Footer with Tribal Pattern */
         footer {
-            background: #1a0f0a;
-            color: var(--earth-brown);
+            background: linear-gradient(135deg, #1a0f0a 0%, var(--tribal-red) 50%, var(--dark-brown) 100%);
+            color: var(--zulu-gold);
             text-align: center;
-            padding: 40px 20px;
-            font-family: Arial, sans-serif;
+            padding: 50px 20px;
+            border-top: 6px solid var(--zulu-gold);
+            border-bottom: 3px solid var(--ndebele-blue);
+            position: relative;
+        }
+        
+        footer::before {
+            content: '⬥ ◆ ⬥';
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            color: var(--savanna-orange);
+            letter-spacing: 30px;
         }
         
         footer p {
-            margin-bottom: 15px;
-            font-size: 1rem;
+            margin-bottom: 18px;
+            font-size: 1.1rem;
+            color: var(--baobab-cream);
+        }
+        
+        footer p:first-of-type {
+            margin-top: 40px;
+            font-weight: 700;
+            font-size: 1.2rem;
         }
         
         /* Mobile Menu */
@@ -461,6 +820,7 @@
             display: none;
             font-size: 2rem;
             cursor: pointer;
+            color: var(--zulu-gold);
         }
         
         /* Responsive */
@@ -469,12 +829,14 @@
                 display: none;
                 flex-direction: column;
                 position: absolute;
-                top: 70px;
+                top: 80px;
                 left: 0;
                 right: 0;
-                background: white;
-                padding: 20px;
-                box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+                background: linear-gradient(135deg, var(--tribal-red), var(--burnt-sienna), var(--earth-brown));
+                padding: 30px 20px;
+                box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+                border-top: 4px solid var(--zulu-gold);
+                border-bottom: 4px solid var(--ndebele-blue);
             }
             
             nav ul.active {
@@ -486,11 +848,12 @@
             }
             
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
+                letter-spacing: 3px;
             }
             
             .hero p {
-                font-size: 1.2rem;
+                font-size: 1.4rem;
             }
             
             nav {
@@ -502,7 +865,7 @@
             }
             
             .products, .about, .contact, .gallery {
-                padding: 60px 20px;
+                padding: 80px 20px;
             }
             
             .product-grid {
@@ -512,13 +875,17 @@
             .gallery-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .values {
+                grid-template-columns: 1fr;
+            }
         }
         
         /* Scroll Animations */
         .fade-in {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
         }
         
         .fade-in.visible {
@@ -530,9 +897,8 @@
 <body>
     <!-- Navigation -->
     <nav>
-        <div>
-            <!-- Use your logo image here -->
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='90' fill='none' stroke='%232c1810' stroke-width='3'/%3E%3Cpath d='M 100 140 Q 80 120 70 100 Q 65 85 70 70 L 80 80 Q 75 90 80 100 Q 90 115 100 120 Q 110 115 120 100 Q 125 90 120 80 L 130 70 Q 135 85 130 100 Q 120 120 100 140 Z' fill='%232c1810'/%3E%3Ctext x='100' y='170' text-anchor='middle' font-family='Georgia' font-size='24' fill='%232c1810'%3ERukau%3C/text%3E%3Ctext x='100' y='190' text-anchor='middle' font-family='Arial' font-size='14' fill='%238b6f47'%3Eby Rosah%3C/text%3E%3C/svg%3E" alt="Rukau by Rosah" class="logo-img">
+        <div class="logo-container">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='90' fill='none' stroke='%23D4AF37' stroke-width='4'/%3E%3Cpath d='M 100 140 Q 80 120 70 100 Q 65 85 70 70 L 80 80 Q 75 90 80 100 Q 90 115 100 120 Q 110 115 120 100 Q 125 90 120 80 L 130 70 Q 135 85 130 100 Q 120 120 100 140 Z' fill='%23C41E3A'/%3E%3Ctext x='100' y='170' text-anchor='middle' font-family='Ubuntu' font-size='24' font-weight='700' fill='%23D4AF37'%3ERukau%3C/text%3E%3Ctext x='100' y='190' text-anchor='middle' font-family='Ubuntu' font-size='14' fill='%23F4E4C1'%3Eby Rosah%3C/text%3E%3C/svg%3E" alt="Rukau by Rosah" class="logo-img">
         </div>
         <div class="mobile-menu" onclick="toggleMenu()">☰</div>
         <ul id="nav-menu">
@@ -541,115 +907,116 @@
             <li><a href="#products">Products</a></li>
             <li><a href="#gallery">Gallery</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="https://www.takealot.com" class="shop-button">Shop on Takealot</a></li>
+            <li><a href="https://www.takealot.com" class="shop-button">Shop Now</a></li>
         </ul>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
+            <div class="hero-subtitle">◆ Handcrafted in the Heart of Mzansi ◆</div>
             <h1>RUKAU BY ROSAH</h1>
-            <p>Handcrafted African Stories • Made for Modern Living</p>
-            <a href="#products" class="cta-button">Explore Our Collection</a>
+            <p>Where Tribal Heritage Meets Kruger Sunsets</p>
+            <a href="#products" class="cta-button">Discover Our Collection</a>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
-        <h2>Where Heritage Meets Home</h2>
+    <section id="about" class="about zulu-pattern">
+        <h2>Our South African Story</h2>
         <p>
-            Rukau by Rosah celebrates the rich tapestry of African culture through contemporary design. 
-            Each product we create tells a story honoring tradition while embracing modern aesthetics. 
-            From hand-carved lamps to artisan-crafted sculptures, we bring the warmth of Africa into your everyday life.
+            Rukau by Rosah celebrates the rich tapestry of South African culture through bold, contemporary design. 
+            Each handcrafted piece tells a story of tribal heritage, Kruger sunsets, and the warm spirit of Mzansi. 
+            From Ndebele-inspired sculptures to Zulu tradition-rich textiles, we bring authentic South African soul into modern homes — one sunset-colored masterpiece at a time.
         </p>
         
         <div class="values">
             <div class="value-card fade-in">
                 <div class="value-icon">♻️</div>
-                <h3>Eco-Friendly</h3>
-                <p>Sustainable materials, biodegradable packaging, and a zero-waste philosophy guide everything we create.</p>
+                <h3>Ubuntu Spirit</h3>
+                <p>Sustainable materials rooted in South African tradition. Biodegradable packaging and zero-waste practices honor both our heritage and Mother Earth. Ubuntu — I am because we are.</p>
             </div>
             
             <div class="value-card fade-in">
                 <div class="value-icon">🎨</div>
-                <h3>Artisan-Made</h3>
-                <p>Hand-crafted by skilled South African artisans, supporting local communities and preserving traditional techniques.</p>
+                <h3>Artisan Crafted</h3>
+                <p>Every piece hand-made by skilled South African artisans from Gauteng to KwaZulu-Natal, preserving ancient tribal techniques while supporting thriving local communities.</p>
             </div>
             
             <div class="value-card fade-in">
                 <div class="value-icon">🌍</div>
-                <h3>Culturally Authentic</h3>
-                <p>Real African heritage, genuine stories, and meaningful designs that celebrate our roots.</p>
+                <h3>Proudly Mzansi</h3>
+                <p>Real stories from the heart of South Africa. Genuine Zulu, Xhosa, and Ndebele cultural heritage expressed through vibrant Kruger-inspired design and meaningful craftsmanship.</p>
             </div>
         </div>
     </section>
 
     <!-- Products Section -->
     <section id="products" class="products">
-        <h2>Our Collection</h2>
-        <p class="products-subtitle">Handcrafted pieces that bring African warmth into modern homes</p>
+        <h2>◆ Our Mzansi Collection ◆</h2>
+        <p class="products-subtitle">Handcrafted treasures that bring the spirit of South Africa home</p>
         
         <div class="product-grid">
-            <!-- Product 1: Mini-Sculpts -->
+            <!-- Product 1 -->
             <div class="product-card fade-in">
                 <div class="product-image">
-                    <img src="https://raw.githubusercontent.com/TinasheAlvin/rukaubyrosah.github.io/refs/heads/main/RUKAU%20STUDIO%20MINI-SCULPTS.jpg" alt="Rukau Studio Mini-Sculpts - Hand-painted African Wildlife">
+                    <img src="https://raw.githubusercontent.com/TinasheAlvin/rukaubyrosah.github.io/refs/heads/main/RUKAU%20STUDIO%20MINI-SCULPTS.jpg" alt="Rukau Studio Mini-Sculpts">
                 </div>
                 <div class="product-info">
                     <h3>Studio Mini-Sculpts</h3>
-                    <p>Hand-painted collectible wildlife featuring elephant, lion, and rhino in stunning sunset gradients. Each piece is numbered and signed.</p>
+                    <p>Hand-painted Big Five wildlife in stunning Kruger sunset gradients. Each collectible piece is numbered, signed, and celebrates the majesty of South Africa's iconic animals from the bushveld.</p>
                     <div class="price">R250 each</div>
                     <a href="#contact" class="product-button">Enquire Now</a>
                 </div>
             </div>
             
-            <!-- Product 2: Sunset in a Box -->
+            <!-- Product 2 -->
             <div class="product-card fade-in">
                 <div class="product-image">
-                    <img src="https://raw.githubusercontent.com/TinasheAlvin/rukaubyrosah.github.io/refs/heads/main/SUNSET%20IN%20A%20BOX.jpg" alt="Sunset in a Box DIY Kit">
+                    <img src="https://raw.githubusercontent.com/TinasheAlvin/rukaubyrosah.github.io/refs/heads/main/SUNSET%20IN%20A%20BOX.jpg" alt="Sunset in a Box">
                 </div>
                 <div class="product-info">
                     <h3>Sunset in a Box</h3>
-                    <p>Complete DIY home décor kit with canvas, sunset paints, African stencils, and LED backlight. Create your own glowing masterpiece in 2 hours!</p>
+                    <p>Experience the magic of a Kruger sunset! Complete DIY kit with everything you need to paint your own glowing masterpiece inspired by South African horizons and the golden hour over the bushveld.</p>
                     <div class="price">R299</div>
                     <a href="#contact" class="product-button">Enquire Now</a>
                 </div>
             </div>
             
-            <!-- Product 3: Heritage Light Pods -->
+            <!-- Product 3 -->
             <div class="product-card fade-in">
                 <div class="product-image">
                     <img src="https://raw.githubusercontent.com/TinasheAlvin/rukaubyrosah.github.io/refs/heads/main/HERITAGE%20LIGHT%20PODS.jpg" alt="Heritage Light Pods">
                 </div>
                 <div class="product-info">
                     <h3>Heritage Light Pods</h3>
-                    <p>Hand-carved coconut shell and calabash lamps with intricate tribal patterns. 100% biodegradable with warm LED glow. USB or solar powered.</p>
+                    <p>Ancient Zulu and Ndebele traditions meet modern elegance. Hand-carved coconut and calabash lamps featuring authentic tribal patterns that illuminate your space with warm South African spirit.</p>
                     <div class="price">R450 - R600</div>
                     <a href="#contact" class="product-button">Enquire Now</a>
                 </div>
             </div>
             
-            <!-- Product 4: Storybead Bracelets -->
+            <!-- Product 4 -->
             <div class="product-card fade-in">
                 <div class="product-image">
                     <img src="https://raw.githubusercontent.com/TinasheAlvin/rukaubyrosah.github.io/refs/heads/main/STORYBEAD%20BRACELET%20SERIES.jpg" alt="Storybead Bracelets">
                 </div>
                 <div class="product-info">
                     <h3>Storybead Bracelets</h3>
-                    <p>Adjustable cultural bracelets with QR-coded stories. Choose Zulu Sunrise, Savanna Dusk, or Kariba Night. Each tells an authentic African tale.</p>
+                    <p>Wear South African heritage with pride! Each vibrant bracelet connects you to authentic Zulu, Xhosa, and Ndebele cultural stories through QR-coded digital narratives. Fashion meets tribal tradition.</p>
                     <div class="price">R135 each</div>
                     <a href="#contact" class="product-button">Enquire Now</a>
                 </div>
             </div>
             
-            <!-- Product 5: African Elements -->
+            <!-- Product 5 -->
             <div class="product-card fade-in">
                 <div class="product-image">
-                    <img src="https://raw.githubusercontent.com/TinasheAlvin/rukaubyrosah.github.io/refs/heads/main/AFRICAN%20ELEMENTS%20SCENT%20COLLECTION.jpg" alt="African Elements Scent Collection - Natural Candles and Diffusers">
+                    <img src="https://raw.githubusercontent.com/TinasheAlvin/rukaubyrosah.github.io/refs/heads/main/AFRICAN%20ELEMENTS%20SCENT%20COLLECTION.jpg" alt="African Elements">
                 </div>
                 <div class="product-info">
                     <h3>African Elements</h3>
-                    <p>100% soy wax candles and reed diffusers in three signature scents: Sunset Ember, Savanna Earth, and Tribal Night. Recycled amber glass jars.</p>
+                    <p>Breathe in the essence of Mzansi! 100% soy wax candles and diffusers in signature scents that capture the spirit of South African landscapes — from the Lowveld bushveld to the golden Karoo.</p>
                     <div class="price">R299 - R350</div>
                     <a href="#contact" class="product-button">Enquire Now</a>
                 </div>
@@ -659,32 +1026,31 @@
 
     <!-- Gallery Section -->
     <section id="gallery" class="gallery">
-        <h2>Our Story in Pictures</h2>
-        <p class="gallery-subtitle">Behind every product is a story of craftsmanship, culture, and care</p>
+        <h2>◆ Mzansi Artistry ◆</h2>
+        <p class="gallery-subtitle">Every piece crafted with Ubuntu, culture, and the soul of South Africa</p>
         <div class="gallery-grid">
             <div class="gallery-item fade-in">
-                <!-- Use your product images in gallery -->
-                <img src="https://raw.githubusercontent.com/TinasheAlvin/rukaubyrosah.github.io/refs/heads/main/HERITAGE%20LIGHT%20PODS-Lifestyle.jpg" alt="HERITAGE LIGHT PODS">
+                <img src="https://raw.githubusercontent.com/TinasheAlvin/rukaubyrosah.github.io/refs/heads/main/HERITAGE%20LIGHT%20PODS-Lifestyle.jpg" alt="Heritage Light Pods">
             </div>
             <div class="gallery-item fade-in">
-                <img src="https://raw.githubusercontent.com/TinasheAlvin/rukaubyrosah.github.io/refs/heads/main/SUNSET%20IN%20A%20BOX-Lifestyle.jpg" alt="SUNSET IN A BOX">
+                <img src="https://raw.githubusercontent.com/TinasheAlvin/rukaubyrosah.github.io/refs/heads/main/SUNSET%20IN%20A%20BOX-Lifestyle.jpg" alt="Sunset in a Box">
             </div>
             <div class="gallery-item fade-in">
-                <img src="https://raw.githubusercontent.com/TinasheAlvin/rukaubyrosah.github.io/refs/heads/main/STORYBEAD%20BRACELETS-Lifestyle.jpg" alt="STORYBEAD BRACELETS">
+                <img src="https://raw.githubusercontent.com/TinasheAlvin/rukaubyrosah.github.io/refs/heads/main/STORYBEAD%20BRACELETS-Lifestyle.jpg" alt="Storybead Bracelets">
             </div>
             <div class="gallery-item fade-in">
-                <img src="https://raw.githubusercontent.com/TinasheAlvin/rukaubyrosah.github.io/refs/heads/main/RUKAU%20STUDIO%20MINI-SCULPTS%20-Lifestyle.jpg" alt="RUKAU STUDIO MINI-SCULPTS">
+                <img src="https://raw.githubusercontent.com/TinasheAlvin/rukaubyrosah.github.io/refs/heads/main/RUKAU%20STUDIO%20MINI-SCULPTS%20-Lifestyle.jpg" alt="Mini-Sculpts">
             </div>
             <div class="gallery-item fade-in">
-                <img src="https://raw.githubusercontent.com/TinasheAlvin/rukaubyrosah.github.io/refs/heads/main/AFRICAN%20ELEMENTS%20SCENT%20COLLECTION%20-Lifestyle.jpg" alt="AFRICAN ELEMENTS SCENT COLLECTION">
+                <img src="https://raw.githubusercontent.com/TinasheAlvin/rukaubyrosah.github.io/refs/heads/main/AFRICAN%20ELEMENTS%20SCENT%20COLLECTION%20-Lifestyle.jpg" alt="African Elements">
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
-        <h2>Get in Touch</h2>
-        <p>Have questions? Want to place a custom order? We'd love to hear from you!</p>
+        <h2>◆ Connect With Us ◆</h2>
+        <p>Ready to bring South African heritage into your home? Let's talk!</p>
         
         <div class="contact-grid">
             <div class="contact-item">
@@ -712,34 +1078,28 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2023 Rukau by Rosah. All rights reserved.</p>
-        <p>Handcrafted with ❤️ in South Africa</p>
-        <p>🌍 Eco-Friendly • 🎨 Artisan-Made • ♻️ Sustainable</p>
+        <p>&copy; 2025 Rukau by Rosah. All rights reserved.</p>
+        <p>Handcrafted with ❤️ in the Heart of Mzansi — Johannesburg, South Africa</p>
+        <p>🌍 Ubuntu Spirit • 🎨 Artisan-Made • ♻️ Eco-Conscious • 🇿🇦 Proudly South African • 🦁 Big Five Inspired</p>
     </footer>
 
     <script>
-        // Mobile menu toggle
         function toggleMenu() {
             const menu = document.getElementById('nav-menu');
             menu.classList.toggle('active');
         }
         
-        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     document.getElementById('nav-menu').classList.remove('active');
                 }
             });
         });
         
-        // Scroll animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
